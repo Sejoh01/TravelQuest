@@ -1,0 +1,439 @@
+CTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Destinations</title>
+    <style>
+      main .container {
+        padding-bottom: 3rem;
+      }
+      main h2 {
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+      p {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+      #grid__destinations {
+        padding: 2rem 0;
+        text-align: center;
+      }
+      .collage {
+        width: 100%;
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-rows: 250px;
+        grid-template-areas:
+          "img1 img1 img3 img3 img3"
+          "img1 img1 img3 img3 img3"
+          "img1 img1 img2 img2 img2"
+          "img5 img5 img2 img2 img2"
+          "img5 img5 img4 img4 img4"
+          "img5 img5 img4 img4 img4";
+
+        gap: 1rem;
+      }
+      .collage img {
+        border-radius: 1rem;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+      }
+      .collage img:hover {
+        transform: scale(102%);
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+      }
+      .img-1 {
+        grid-area: img1;
+      }
+      .img-2 {
+        grid-area: img2;
+      }
+      .img-3 {
+        grid-area: img3;
+      }
+      .img-4 {
+        grid-area: img4;
+      }
+      .img-5 {
+        grid-area: img5;
+      }
+      .city-content {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2rem 0;
+      }
+      .recommended {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+      .recommended div {
+        width: 32%;
+        max-height: 12rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .recommended div:hover h3 {
+        opacity: 1;
+      }
+      .recommended img {
+        width: 100%;
+        object-fit: cover;
+      }
+      .recommended h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 12.5rem;
+        background-color: #0007;
+        opacity: 0;
+        color: white;
+        z-index: 10;
+        text-align: center;
+        transition: opacity 1s ease-in-out;
+        cursor: pointer;
+      }
+
+      /* form css */
+      #search {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #search label {
+        font-size: var(--h3);
+        margin-right: 1rem;
+      }
+      #search #place {
+        padding: 0.75rem 1.5rem;
+        width: 25%;
+        border-radius: 1rem;
+        border: none;
+        border: 1px solid black;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+      }
+      #search #place:focus,
+      #search #place:active {
+        border-color: #f5c94f;
+      }
+
+      /* Loader */
+      .loader-container {
+        position: relative;
+      }
+      #loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        display: none;
+      }
+      #most-searched {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+      }
+      #most-searched > div {
+        width: 100%;
+        max-height: 12rem;
+        border-radius: 1rem;
+        overflow: hidden !important;
+        position: relative;
+        cursor: pointer;
+      }
+      #most-searched > div img {
+        width: 100%;
+        object-fit: cover;
+      }
+      #most-searched > div h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 12.5rem;
+        background-color: #0007;
+        opacity: 0;
+        color: white;
+        z-index: 10;
+        text-align: center;
+        transition: opacity 1s ease-in-out;
+        cursor: pointer;
+      }
+      #most-searched > div:hover h3 {
+        opacity: 1;
+      }
+      @media screen and (max-width: 1050px) {
+        #most-searched {
+          grid-template-columns: 1fr 1fr;
+        }
+        #most-searched > div img {
+          width: 100%;
+          object-fit: cover;
+        }
+        .collage {
+          grid-auto-rows: 170px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        #search {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
+        }
+        #search > * {
+          margin-bottom: 1rem;
+        }
+        h1 {
+          margin-bottom: 2rem;
+        }
+        #search > input#place {
+          width: 100%;
+        }
+        #most-searched > div {
+          max-height: 10rem;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        #most-searched {
+          grid-template-columns: 1fr;
+        }
+        #most-searched > div {
+          max-height: 10rem;
+        }
+        #most-search > div img {
+          object-position: bottom;
+        }
+        .collage {
+          grid-auto-rows: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <div class="nav">
+            <img src="../images/Travelo Logo.jpg" alt="Travelo Logo" />
+            <ul>
+              <li>
+                <a href="../index.html" class="link">Home</a>
+                <a href="./about.html" class="link">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="link">Destinations</a>
+                <a href="./services.html" class="link">Features</a>
+              </li>
+              <li>
+                <a href="./prices.html" class="link">Pricing</a>
+                <a href="./reviews.html" class="link">Reviews</a>
+              </li>
+            </ul>
+            <div class="cta first">
+              <a class="primary-btn small">Log In</a>
+            </div>
+            <i
+              class="fa-solid fa-bars"
+              style="color: #000000"
+              id="nav-icon"
+              onclick="toggleSidebar()"
+            ></i>
+            <div id="sidebar" class="sidebar">
+              <ul>
+                <li>
+                  <a href="../index.html" class="link">Home</a>
+                  <a href="./about.html" class="link">About Us</a>
+                </li>
+                <li>
+                  <a href="#" class="link">Destinations</a>
+                  <a href="./services.html" class="link">Features</a>
+                </li>
+                <li>
+                  <a href="./prices.html" class="link">Pricing</a>
+                  <a href="./reviews.html" class="link">Reviews</a>
+                </li>
+              </ul>
+              <div class="cta second">
+                <a class="primary-btn small">Log In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="fade-in">
+      <section>
+        <div class="container">
+          <h1>Find Your Next Vacation Spot</h1>
+          <form id="search">
+            <label for="place">Enter any famous city you want to visit:</label>
+            <input type="text" id="place" required />
+            <input type="submit" value="Search" class="primary-btn" />
+          </form>
+        </div>
+        <div class="container">
+          <div class="loader-container">
+            <img src="../images/Blocks-1s-200px.svg" alt="Loader" id="loader" />
+          </div>
+          <div id="grid__destinations"></div>
+        </div>
+        <div class="container">
+          <h2>Most Searched Cities</h2>
+          <div id="most-searched">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1550340499-a6c60fc8287c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Paris"
+              />
+              <h3>Paris</h3>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1604928141064-207cea6f571f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+                alt="Tokyo"
+              />
+              <h3>Tokyo</h3>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="New York"
+              />
+              <h3>New York</h3>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1592835978338-6b7b07592dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1492&q=80"
+                alt="Mumbai"
+              />
+              <h3>Mumbai</h3>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1523608401-53eb5741c1a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                alt="Sydney"
+              />
+              <h3>Sydney</h3>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1548919973-5cef591cdbc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Shanghai"
+              />
+              <h3>Shanghai</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="wishlist" id="wishlist">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <div id="wishlist-container" class="wishlist-container">
+      <div class="wishlist-content" id="wishlist-content"></div>
+      <div>
+        <p style="margin-bottom: 1rem" id="estimated">
+          Total Estimated Price : <strong id="total-amount">0</strong>
+        </p>
+        <button id="buy" class="primary-btn">Checkout Now</button>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div>
+          <div class="socials">
+            <h3>Leading the way in adventure</h3>
+            <div>
+              <a href="https://www.facebook.com/" target="_blank">
+                <i class="fa-brands fa-facebook-f" style="color: #000000"></i>
+              </a>
+
+              <a href="https://www.instagram.com/" target="_blank">
+                <i class="fa-brands fa-instagram" style="color: #000000"></i>
+              </a>
+              <a href="https://www.twitter.com/" target="_blank">
+                <i class="fa-brands fa-twitter" style="color: #000000"></i>
+              </a>
+              <a href="https://www.youtube.com/" target="_blank">
+                <i class="fa-brands fa-youtube" style="color: #000000"></i>
+              </a>
+            </div>
+          </div>
+          <div class="newsletter">
+            <h3>Join Our Newsletter</h3>
+            <input type="email" placeholder="Enter your e-mail" />
+            <img
+              src="../images/icons/cta-btn.png"
+              alt="Submit Icon"
+              onclick="showPopup()"
+            />
+            <div id="popup" class="popup"></div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <div>
+            <img src="../images/Travelo Logo.jpg" alt="Travelo Logo" />
+            <p>
+              Travell plans are not really an instrument themselves but a
+              delivery mechanism or strategy for mostly others
+            </p>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="/">+913134566585</a>
+            <a href="">info@travelo.com</a>
+            <a href="">support@travelo.com</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="/">About Us</a>
+            <a href="">Features</a>
+            <a href="">Careers</a>
+          </div>
+          <div>
+            <h4>Resource</h4>
+            <a href="/">Press Info</a>
+            <a href="">Customers</a>
+            <a href="">Reviews</a>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <p>@2023 travelo | All Rights Reserved</p>
+          <div>
+            <p>We Accept Payment:</p>
+            <img src="../images/icons/logos_stripe.svg" alt="Stripe Logo" />
+            <img src="../images/icons/Paypal.svg" alt="Paypal Logo" />
+            <img src="../images/icons/Payonner 1.svg" alt="Payoneer Logo" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../main.js"></script>
+  <script src="../scripts/destinations.js"></script>
+</html>
+
