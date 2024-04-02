@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>About Us | TravelQuest</title>
+    <style>
+      /* CSS styles */
+      main .container {
+        padding-bottom: 3rem;
+      }
+      p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+      }
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 0.5rem;
+        color: var(--paragraph);
+      }
+      ul li:last-child {
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <div class="nav">
+            <img src="../images/TravelQuest_Logo.jpg" alt="TravelQuest Logo" />
+            <ul>
+              <li>
+                <a href="../index.html" class="link">Home</a>
+                <a href="#" class="link">About Us</a>
+              </li>
+              <li>
+                <a href="./destinations.html" class="link">Destinations</a>
+                <a href="./services.html" class="link">Features</a>
+              </li>
+              <li>
+                <a href="./prices.html" class="link">Pricing</a>
+                <a href="./reviews.html" class="link">Reviews</a>
+              </li>
+            </ul>
+            <div class="cta first">
+              <a class="primary-btn small">Log In</a>
+            </div>
+            <i
+              class="fa-solid fa-bars"
+              style="color: #000000"
+              id="nav-icon"
+              onclick="toggleSidebar()"
+            ></i>
+            <div id="sidebar" class="sidebar">
+              <ul>
+                <li>
+                  <a href="../index.html" class="link">Home</a>
+                  <a href="#" class="link">About Us</a>
+                </li>
+                <li>
+                  <a href="./destinations.html" class="link">Destinations</a>
+                  <a href="./services.html" class="link">Features</a>
+                </li>
+                <li>
+                  <a href="./prices.html" class="link">Pricing</a>
+                  <a href="./reviews.html" class="link">Reviews</a>
+                </li>
+              </ul>
+              <div class="cta second">
+                <a class="primary-btn small">Log In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="fade-in">
+      <div class="container">
+        <h1>About Us</h1>
+        <h2>
+          <i class="fa-solid fa-location-dot" style="color: #f5c94f"></i>
+          City - Nairobi, Kenya
+        </h2>
+        <br />
+        <h2>
+          <i class="fa-solid fa-book" style="color: #d58170"></i> Our Mission
+        </h2>
+        <p>
+          At TravelQuest, our mission is to redefine the travel experience by providing exceptional services and creating memorable journeys for our clients. We strive to inspire wanderlust, foster cultural understanding, and facilitate connections that transcend borders.
+        </p>
+        <br />
+
+        <h2>
+          <i class="fa-solid fa-bell-concierge" style="color: #d411a0"></i> Our
+          Services
+        </h2>
+        <p style="margin-bottom: 0">
+          At TravelQuest, we offer a wide range of services to cater to
+          your travel needs:
+        </p>
+        <br />
+        <ul>
+          <li>
+            <i class="fa-solid fa-check" style="color: #4caf50"></i> Flight
+            bookings
+          </li>
+          <li>
+            <i class="fa-solid fa-check" style="color: #4caf50"></i> Hotel
+            reservations
+          </li>
+          <li>
+            <i class="fa-solid fa-check" style="color: #4caf50"></i> Customized
+            tour packages
+          </li>
+          <li>
+            <i class="fa-solid fa-check" style="color: #4caf50"></i> Car rentals
+          </li>
+          <li>
+            <i class="fa-solid fa-check" style="color: #4caf50"></i> Cruise
+            bookings
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

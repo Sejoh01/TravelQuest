@@ -1,0 +1,65 @@
+#features {
+  padding: 5rem 0;
+}
+
+#features h2 {
+  text-align: center;
+}
+
+#features > .container > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+#features > .container > div > div {
+  background-color: var(--highlight-light);
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+#features > .container > div > div::after {
+  content: "Dynamic";
+  position: absolute;
+  right: -45%;
+  top: 6%;
+  font-size: 5rem;
+  font-weight: bolder;
+  color: var(--highlight-dark);
+}
+
+#features > .container > div > div > img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1050px) {
+  #features {
+    padding: 3rem 0;
+  }
+
+  #features > .container > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  #features {
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #features > .container > div {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+}

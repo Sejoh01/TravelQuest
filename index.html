@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./styles/home/hero.css" />
+    <link rel="stylesheet" href="./styles/home/discover.css" />
+    <link rel="stylesheet" href="./styles/home/features.css" />
+    <link rel="stylesheet" href="./styles/home/services.css" />
+    <link rel="stylesheet" href="./styles/home/travel.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>TravelQuest | Your Travel Agency</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <div class="nav">
+            <img src="./images/TravelQuest_Logo.jpg" alt="TravelQuest Logo" />
+            <ul>
+              <li>
+                <a href="/" class="link">Home</a>
+                <a href="/templates/about.html" class="link">About Us</a>
+              </li>
+              <li>
+                <a href="/templates/destinations.html" class="link">Destinations</a>
+                <a href="/templates/services.html" class="link">Features</a>
+              </li>
+              <li>
+                <a href="./templates/prices.html" class="link">Pricing</a>
+                <a href="./templates/reviews.html" class="link">Reviews</a>
+              </li>
+            </ul>
+            <div class="cta first">
+              <a class="primary-btn small">Log In</a>
+            </div>
+            <i
+              class="fa-solid fa-bars"
+              style="color: #000000"
+              id="nav-icon"
+              onclick="toggleSidebar()"
+            ></i>
+            <div id="sidebar" class="sidebar">
+              <ul>
+                <li>
+                  <a href="/" class="link">Home</a>
+                  <a href="/templates/about.html" class="link">About Us</a>
+                </li>
+                <li>
+                  <a href="/templates/destinations.html" class="link">Destinations</a>
+                  <a href="/templates/services.html" class="link">Features</a>
+                </li>
+                <li>
+                  <a href="./templates/prices.html" class="link">Pricing</a>
+                  <a href="./templates/reviews.html" class="link">Reviews</a>
+                </li>
+              </ul>
+              <div class="cta second">
+                <a class="primary-btn small">Log In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section and other sections -->
+    </main>
+    <footer>
+      <div class="container">
+        <div>
+          <div class="socials">
+            <h3>Leading the way in adventure</h3>
+            <div>
+              <a href="https://www.facebook.com/" target="_blank">
+                <i class="fa-brands fa-facebook-f" style="color: #000000;"></i>
+              </a>
+              <a href="https://www.instagram.com/" target="_blank">
+                <i class="fa-brands fa-instagram" style="color: #000000;"></i>
+              </a>
+              <a href="https://www.twitter.com/" target="_blank">
+                <i class="fa-brands fa-twitter" style="color: #000000;"></i>
+              </a>
+              <a href="https://www.youtube.com/" target="_blank">
+                <i class="fa-brands fa-youtube" style="color: #000000;"></i>
+              </a>
+            </div>
+          </div>
+          <div class="newsletter">
+            <h3>Join Our Newsletter</h3>
+            <input type="email" placeholder="Enter your e-mail" />
+            <img
+              src="./images/icons/cta-btn.png"
+              alt="Submit Icon"
+              onclick="showPopup()"
+            />
+            <div id="popup" class="popup"></div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <div>
+            <img src="./images/TravelQuest_Logo.jpg" alt="TravelQuest Logo" />
+            <p>
+              Travell plans are not really an instrument themselves but a
+              delivery mechanism or strategy for mostly others
+            </p>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <!-- Phone number and email removed -->
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="/">About Us</a>
+            <a href="">Features</a>
+            <a href="">Careers</a>
+          </div>
+          <div>
+            <h4>Resource</h4>
+            <a href="/">Press Info</a>
+            <a href="">Customers</a>
+            <a href="">Reviews</a>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <!-- Payment options removed -->
+        </div>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
