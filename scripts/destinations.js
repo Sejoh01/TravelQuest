@@ -50,29 +50,30 @@ const destinations = [
   });
   
   async function getPhotos() {
-    grid.innerHTML = "";
-    loaderContainer.style.height = "300px";
     try {
-      loader.style.display = "block";
-      const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=YOUR_CLIENT_ID&per_page=${5}`
-      );
-      const data = await response.json();
-      return data.results;
+        const localImages = [
+            "../images/mombasa.jpg",
+            "../images/kisumu.jpg",
+            "../images/nakuru.jpg",
+            "../images/nairobi.jpg"
+        ];
+        return localImages;
     } catch (error) {
-      console.error("Error occurred:", error);
+        console.error("Error occurred:", error);
     }
   }
   
   async function findImageUrl(query) {
     try {
-      const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${query}&client_id=YOUR_CLIENT_ID&per_page=${1}`
-      );
-      const data = await response.json();
-      return data.results;
+        const localImages = {
+            "mombasa": "../images/mombasa.jpg",
+            "kisumu": "../images/kisumu.jpg",
+            "nakuru": "../images/nakuru.jpg",
+            "nairobi": "../images/nairobi.jpg"
+        };
+        return localImages[query.toLowerCase()];
     } catch (error) {
-      console.error("Error occurred:", error);
+        console.error("Error occurred:", error);
     }
   }
   
